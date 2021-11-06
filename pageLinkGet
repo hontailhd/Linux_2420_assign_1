@@ -1,0 +1,36 @@
+#!/bin/bash
+
+while getopts ":f:h" opt; do
+   case ${opt} in
+     f ) #stores output to file witc imput of flag -f
+          url=${OPTARG}
+          wget -O links "${url}" #download html file from given url and write to "links" file
+          cat links | grep -Eoi "(http|https)://[a-zA-Z0-9./]*" | sort -u > display
+          echo ""
+          echo "url links saved to display file"
+          echo ""
+          cat display #displays the output
+;;
+      h ) 
+        echo "use [-f] to store the url into a file "
+        ;;
+           #propmpts a user an error message if they enter different flags
+      \? ) echo "Invalid option: ${OPTARG} use: [-h] for help" 
+        exit 1 ;;
+      : )
+        echo " [-f] requires an argument after " 
+        exit 1 ;;
+    esac
+  exit 0
+  shift $(( OPTIND -1 )) # shift the argument back
+  done
+  
+#replacement code for no flag input
+if [[ $OPTIND -eq 1 ]] ; then
+          url=$1 
+          wget -O links "${url}" #download html file from the url inputted and write to the "links" file
+          cat links | grep -Eoi "(http|https)://[a-zA-Z0-9./]*" | sort -u
+
+exit 0; fi #display content
+
+

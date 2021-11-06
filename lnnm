@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#use getopts to check if the flag is in the program else prompt an error
+while getopts ":n:h" opt; do
+  case ${opt} in
+    n )#if user wants the file to be in a numbered format
+      num=1
+      file=$OPTARG
+      while read line;do #reads every line of file and input a number, which increase with every line, before it
+        echo $num\. $line
+        ((num++))
+      done < $file;; #redirect user arg to read
+    h ) #reminder for which command for displaying numbers
+      echo "[-n] file to display number(s) for each line"
+      ;;
+    \? )#error msg invalid option inputted
+      echo "Invalid input: $OPTARG; type [-h] for commands"
+      exit 1;;
+    : )#err msg for no file inputted after -n
+      echo "[-n] a file is required after this command"
+      exit 1;;    
+  esac
+exit 0
+shift $(( OPTIND -1 )) #change option to neutreal (back to $1)
+done
+
+if [[ $OPTIND -eq 1 ]]; then #removes numbers for lines
+  while read line;do
+    echo $line
+  done < $1 
+exit 0;
+fi

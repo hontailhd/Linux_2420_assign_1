@@ -1,0 +1,104 @@
+#!/bin/bash
+
+#check the directory if it exist
+if [[ -d contacts ]]; then
+  while getopts ":harsd" opt; do
+    case ${opt} in
+      a )#add new contact to list
+        echo ""
+        #ask the use to enter the name,phone,email
+        read -ep "Enter name: " name
+        read -ep "Enter phone number: " phone
+        read -ep "Enter email address: " email
+        read -ep "Enter physical address: " address
+        #send output to contact_list
+        echo "$name:$phone:$email:$address" >> ./contact/contact_list
+        echo ""
+        echo "New contact list added"
+;;
+      r )#remove a contact from the list
+        echo ""
+        read -ep "Enter the name of the contact you want to remove: " name
+        #check the name in the contact_list, delete using gawk
+        gawk -i inplace '!/'$name'/' ./contacts/contact_list
+        echo "$name is deleted from the contact list"
+;;
+      s )#ask user to enter a name to output info
+        read -ep "Enter name: " name
+        echo ""
+        echo "Please choose an option"
+        echo ""
+        echo "[p] for phone number"
+        echo ""
+        echo "[m] for email"
+        echo ""
+        echo ""[a] for address
+        echo ""
+        #read the option the user has inputted 
+        read -ep "Choose an option: " option
+        
+        #created a case to display the phone or email
+        case $option in
+            p )
+              echo ""
+              #split text file by " ", and print phone number
+            awk 'BEGIN { FS=":"; print "Phone\n";} /'^$name'/ {print $2;}' ./contacts/contact_list;;
+            m )
+              echo ""
+              #splits text file by " ", and print email
+             awk 'BEGIN { FS=":"; print "Email\n";} /'^$name'/ {print $3;}' ./contacts/contact_list;;
+ 
+            a )
+              echo ""
+              #splits text file by " ", and print address
+              awk 'BEGIN { FS=":"; print "Address\n";} /'^$name'/ {print $4;}' ./contacts/contact_list;;
+            * )
+               #error message if user inputs incorrect option
+              echo"Invalid Option: $OPTARG use: [pma]"
+              exit 1;;
+         esac
+         exit 0;;
+
+      d )#format contact_list with awk
+        
+        awk 'BEGIN {FS=":"; printf ("%-10s\t%-12s\t%-20s\t%s\n-----------------------------------------------------------------------------\n", "Name", "Phone Number", "Email", "Address") } {printf ("%-10s\t%-12s\t%-20s\t%s\n", $1,$2,$3,$4) }' ./contacts/contact_list ;;           
+      
+      h)    
+        echo ""
+        echo "Options to Choose"
+        echo ""
+        echo "[-a] to add a new contact"
+        echo ""
+        echo "[-r] to remove a contact"
+        echo ""
+        echo "[-s] to seach for specific information"
+        echo ""
+        echo "[-d] to dislpay the formatted contact list"
+        echo ""   
+        ;;
+   
+      \? )#error message output
+         echo "Invalid Option: $OPTARG use: [-h]"
+         exit 1;;
+    esac
+    exit 0
+    done
+
+#message for no options inputted
+if [[ $OPTIND -eq 1 ]] ; then
+    echo "No option detected, type [-h] to see commands"
+    exit 1; fi
+shift $(( OPTIND -1 )) 
+#removes previous completed options 
+
+else
+    
+    echo ""
+    echo "creating directory for contact and creating file for contact_list ..."
+    mkdir contacts && touch ./contacts/contact_list
+    echo ""
+    echo "done"
+    echo "restart the program"
+    exit 0
+    
+ fi    
