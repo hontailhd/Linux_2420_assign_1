@@ -2,7 +2,7 @@
 
 #check the directory if it exist
 if [[ -d contacts ]]; then
-  while getopts ":harsd" opt; do
+  while getopts ":arsdh" opt; do
     case ${opt} in
       a )#add new contact to list
         echo ""
@@ -12,7 +12,7 @@ if [[ -d contacts ]]; then
         read -ep "Enter email address: " email
         read -ep "Enter physical address: " address
         #send output to contact_list
-        echo "$name:$phone:$email:$address" >> ./contact/contact_list
+        echo "$name:$phone:$email:$address" >> ./contacts/contact_list
         echo ""
         echo "New contact list added"
 ;;
@@ -35,10 +35,10 @@ if [[ -d contacts ]]; then
         echo ""[a] for address
         echo ""
         #read the option the user has inputted 
-        read -ep "Choose an option: " option
+        read -ep "Choose an option: " usr_opt
         
         #created a case to display the phone or email
-        case $option in
+        case $usr_opt in
             p )
               echo ""
               #split text file by " ", and print phone number
@@ -54,7 +54,7 @@ if [[ -d contacts ]]; then
               awk 'BEGIN { FS=":"; print "Address\n";} /'^$name'/ {print $4;}' ./contacts/contact_list;;
             * )
                #error message if user inputs incorrect option
-              echo"Invalid Option: $OPTARG use: [pma]"
+              echo"Unacceptable option: $option_arg use: [pma]"
               exit 1;;
          esac
          exit 0;;
@@ -78,7 +78,7 @@ if [[ -d contacts ]]; then
         ;;
    
       \? )#error message output
-         echo "Invalid Option: $OPTARG use: [-h]"
+         echo "Invalid Option: $option_arg use: [-h]"
          exit 1;;
     esac
     exit 0
@@ -86,7 +86,7 @@ if [[ -d contacts ]]; then
 
 #message for no options inputted
 if [[ $OPTIND -eq 1 ]] ; then
-    echo "No option detected, type [-h] to see commands"
+    echo "No argument detected, type [-h] to see commands"
     exit 1; fi
 shift $(( OPTIND -1 )) 
 #removes previous completed options 
@@ -94,11 +94,12 @@ shift $(( OPTIND -1 ))
 else
     
     echo ""
-    echo "creating directory for contact and creating file for contact_list ..."
+    echo "generating new directory for contacts..."
+    echo "generating file for contact_list in contacts directory ..."
     mkdir contacts && touch ./contacts/contact_list
     echo ""
-    echo "done"
-    echo "restart the program"
+    echo "finished"
+    echo "Program ready to be used again"
     exit 0
     
  fi    

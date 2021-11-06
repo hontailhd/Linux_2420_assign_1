@@ -1,32 +1,32 @@
 #!/bin/bash
 
 while getopts ":f:h" opt; do
-   case ${opt} in
+   case ${option} in
      f ) #stores output to file witc imput of flag -f
-          url=${OPTARG}
+          url=${option_arg}
           wget -O links "${url}" #download html file from given url and write to "links" file
           cat links | grep -Eoi "(http|https)://[a-zA-Z0-9./]*" | sort -u > display
           echo ""
-          echo "url links saved to display file"
+          echo "url links saved to the file: links"
           echo ""
           cat display #displays the output
 ;;
       h ) 
-        echo "use [-f] to store the url into a file "
+        echo "use [-f] to store url into file: links "
         ;;
            #propmpts a user an error message if they enter different flags
-      \? ) echo "Invalid option: ${OPTARG} use: [-h] for help" 
+      \? ) echo "Wrong input: ${option_arg} use: [-h] for help" 
         exit 1 ;;
       : )
-        echo " [-f] requires an argument after " 
+        echo " flag [-f] requires an argument after it" 
         exit 1 ;;
     esac
   exit 0
-  shift $(( OPTIND -1 )) # shift the argument back
+  shift $(( option_indent -1 )) # shift the argument back
   done
   
-#replacement code for no flag input
-if [[ $OPTIND -eq 1 ]] ; then
+#replacement code for no inputted flag
+if [[ $option_indent -eq 1 ]] ; then
           url=$1 
           wget -O links "${url}" #download html file from the url inputted and write to the "links" file
           cat links | grep -Eoi "(http|https)://[a-zA-Z0-9./]*" | sort -u

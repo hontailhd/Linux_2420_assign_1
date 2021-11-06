@@ -24,7 +24,7 @@ exit 0
 shift $(( OPTIND -1 )) #change option to neutreal (back to $1)
 done
 
-if [[ $OPTIND -eq 1 ]]; then #removes numbers for lines
+if [[ $OPTIND -eq 1 ]]; then #removes numbers in front of lines
   while read line;do
     echo $line
   done < $1 
