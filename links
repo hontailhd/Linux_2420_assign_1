@@ -86,16 +86,16 @@
                 Latest development
             </h2>
             <ul class="home-list">
-                <li><time datetime="2021-11-06T02:58:10+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=641d2abee1f537948fd8c91a7cb596fa8a9d7b38">community&#x2F;gnome-calendar: upgrade to 41.1</a></li>
-                <li><time datetime="2021-11-06T02:42:05+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=a6edc4f2a3254d164f7dbb2ace27ecac3ab66653">community&#x2F;cloud-init: upgrade to 21.4</a></li>
-                <li><time datetime="2021-11-06T02:41:16+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=cf1c0bb735e847bc38318fb0f388e5ca24926cd7">community&#x2F;mutter: upgrade to 41.1</a></li>
-                <li><time datetime="2021-11-06T02:40:45+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=df35cbd6eb7ecde1f6a5df7609d4544f2f83c933">community&#x2F;gnome-shell: upgrade to 41.1</a></li>
-                <li><time datetime="2021-11-06T01:38:26+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=102e9425a383bcf41dc1e28af540b245ca057d57">testing&#x2F;b3sum: upgrade to 1.2.0</a></li>
-                <li><time datetime="2021-11-06T01:20:58+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=7eb3679e6c7df0f50d800e875649202ce33d792a">community&#x2F;openipmi: upgrade to 2.0.32</a></li>
-                <li><time datetime="2021-11-06T01:16:12+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=dfa702c98547e58e2a428de3dd1458ed0ab4c42b">main&#x2F;btrfs-progs: upgrade to 5.15</a></li>
-                <li><time datetime="2021-11-06T01:13:08+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=dab2fdde80d0e5caf499bc298edec27c35fe3100">community&#x2F;py3-cachecontrol: upgrade to 0.12.10</a></li>
-                <li><time datetime="2021-11-06T01:12:12+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=357fd03bb3afe64d9440ddb10a8fa3b08fe7d907">community&#x2F;py3-fonttools: upgrade to 4.28.0</a></li>
-                <li><time datetime="2021-11-05T23:13:19+00:00">2021-11-05</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=e0855589ce1d842fed0ecad3813c84d91d8a6ea5">testing&#x2F;zellij: new aport</a></li>
+                <li><time datetime="2021-11-06T00:10:02+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=9ce990e81a7e40898df0fb19eb1f5589f0d7f356">testing&#x2F;renderdoc: disable on riscv64</a></li>
+                <li><time datetime="2021-11-06T06:04:36+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=6d974ec1972d0b8a40cff2c38f8fb28dd8834d78">testing&#x2F;idris2: rebuild against chez-scheme-9.5.6</a></li>
+                <li><time datetime="2021-11-06T06:28:49+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=77bc55d0ac77421b096b75694f5cf8086d44a904">testing&#x2F;chez-scheme: mention that upgrades require rebuilding idris2</a></li>
+                <li><time datetime="2021-11-06T21:15:30+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=1204cc6ef8206614d4c41e2bf555eedd5feecb78">community&#x2F;rspamd: upgrade to 3.1</a></li>
+                <li><time datetime="2021-11-06T20:22:15+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=91c89fe80bd0e978d7bcc67adbdecbd976b30e5e">community&#x2F;pmbootstrap: upgrade to 1.39.0</a></li>
+                <li><time datetime="2021-11-06T20:11:59+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=029a79a21d89d05d5122ebb13bdd906ab061ba8a">testing&#x2F;touchegg: upgrade to 2.0.12</a></li>
+                <li><time datetime="2021-11-06T20:11:18+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=5d4d0b56adb600915db77a145904ce2970aafd12">testing&#x2F;v2ray: upgrade to 4.43.0</a></li>
+                <li><time datetime="2021-11-06T20:10:43+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=308a1e33fbce3ef84be0715e018abb9cadeb42f9">community&#x2F;{g,p}dal: fix typo</a></li>
+                <li><time datetime="2021-11-06T20:09:26+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=61cf1e158e268d11b31751cda1fa3e03961bc038">community&#x2F;mxml: upgrade to 3.3</a></li>
+                <li><time datetime="2021-11-06T20:08:37+00:00">2021-11-06</time>  <a href="http://git.alpinelinux.org/aports/commit/?id=65f4d6d94efe19e38f391dc410fb7564283553a2">testing&#x2F;enigma: new aport</a></li>
             </ul>
             <a class="pure-button read-more" href="https://git.alpinelinux.org/aports/log">Read more</a>
         </div>
